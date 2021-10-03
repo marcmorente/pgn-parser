@@ -1,0 +1,30 @@
+{
+    "name": "marcmorente/pgn-parser",
+    "description": "A PHP parser for the chess game notation format, Portable Game Notation",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc Morente",
+            "email": "marc.morente@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5 || ^9.5"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "PGNParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PGNParser\\Test\\": "tests/"
+        }
+    }
+}
