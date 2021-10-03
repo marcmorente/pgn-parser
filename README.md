@@ -1,1 +1,1 @@
-# pgn-parser
+# PGN parser in PHP
