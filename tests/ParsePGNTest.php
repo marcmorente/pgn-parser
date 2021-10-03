@@ -9,7 +9,7 @@ final class ParsePGNTest extends TestCase
 {
     public function testCanBeCreatedFromValidPGNFile(): void
     {
-        $filePath = dirname(__DIR__).'/tests/PGNFiles/test.pgn';
+        $filePath = dirname(__DIR__).'/tests/PGNFiles/randomEvents.pgn';
         $this->assertInstanceOf(
             PGN::class,
             new PGN($filePath)
@@ -18,7 +18,7 @@ final class ParsePGNTest extends TestCase
 
     public function testCanGetGamesFromPGNFile(): void
     {
-        $filePath = dirname(__DIR__).'/tests/PGNFiles/test.pgn';
+        $filePath = dirname(__DIR__).'/tests/PGNFiles/randomEvents.pgn';
         $parser   = new PGN($filePath);
         $this->assertIsArray($parser->getGames());
         $this->assertGreaterThan(0, count($parser->getGames()));
