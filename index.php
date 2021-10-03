@@ -8,12 +8,12 @@ error_reporting(E_ALL);
 set_time_limit(0);
 require 'vendor/autoload.php';
 
-$filePath = __DIR__.'/tests/PGNFiles/randomEvents.pgn';
+$filePath = __DIR__.'/tests/PGNFiles/recullhistoric.pgn';
 $pgn = new PGNParser\PGN($filePath);
 $games = $pgn->getGames();
 
-/*foreach ($games as $game) {
-    echo $pgn->metaData($game)->getBlackElo()."\n";
-}*/
+foreach ($games as $game) {
+    echo $pgn->metaData($game)->getWhite()."\n";
+}
 
-print_r($games);
+//print_r($games);
