@@ -19,12 +19,12 @@ final class Parser
         $strMoves = '';
         $pgnFile = new SplFileObject($filePath);
         $pgnFile->setFlags(SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
-
+        $re = '/\[Event\s|\[Site\s|\[Date\s|\[Round\s|\[White\s|\[Black\s|\[Result\s|\[ECO\s|\[WhiteElo\s|\[BlackElo\s/';
         while (!$pgnFile->eof()) {
             $line = trim($pgnFile->fgets());
             if ($line === '') continue;
 
-            if (strpos($line, '[Event ') !== false) {
+            if (preg_match($re, $line)) {
                 if ($moves) {
                     $i++;
                     $moves = false;
