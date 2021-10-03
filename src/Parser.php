@@ -18,15 +18,17 @@ final class Parser
         $moves = false;
         $strMoves = '';
         $pgnFile = new SplFileObject($filePath);
+        $pgnFile->setFlags(SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
 
         while (!$pgnFile->eof()) {
             $line = trim($pgnFile->fgets());
-            if (empty($line)) continue;
+            if ($line === '') continue;
 
-            if ($line[0] === '[') {
+            if (strpos($line, '[Event ') !== false) {
                 if ($moves) {
                     $i++;
                     $moves = false;
+                    $strMoves = '';
                 }
                 $games[$i]['metaData'][] = $line;
             } else {
