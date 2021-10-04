@@ -1,7 +1,7 @@
 # Chess PGN parser in PHP
 
-##Install
-
+Install
+-------
 	composer require marcmorente/pgn-parser
 
 ## Example Code
