@@ -1,5 +1,9 @@
 # Chess PGN parser in PHP
 
+##Install
+
+	composer require marcmorente/pgn-parser
+
 ## Example Code
 The code below parses a PGN file and prints the event, name of the white player, name of the black player, result and moves of each game.
 
