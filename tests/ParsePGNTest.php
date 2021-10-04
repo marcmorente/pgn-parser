@@ -38,6 +38,23 @@ final class ParsePGNTest extends TestCase
         }
     }
 
+    public function testMetaDataCanGetMandatoryTags(): void
+    {
+        $filePath = dirname(__DIR__).'/tests/PGNFiles/andorra2018.pgn';
+        $pgn      = new PGNParser\PGN($filePath);
+        $games    = $pgn->getGames();
+
+        foreach ($games as $game) {
+            $this->assertNotEmpty($pgn->metaData($game)->getEvent());
+            $this->assertNotEmpty($pgn->metaData($game)->getSite());
+            $this->assertNotEmpty($pgn->metaData($game)->getDate());
+            $this->assertNotEmpty($pgn->metaData($game)->getRound());
+            $this->assertNotEmpty($pgn->metaData($game)->getWhite());
+            $this->assertNotEmpty($pgn->metaData($game)->getBlack());
+            $this->assertNotEmpty($pgn->metaData($game)->getResult());
+        }
+    }
+
     public function testShouldGetCorrectNumbersOfGamesFromPGNFile(): void
     {
         $dir   = dirname(__DIR__).'/tests/PGNFiles';
