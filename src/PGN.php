@@ -22,9 +22,14 @@ final class PGN
         return $this->games;
     }
 
-    public function getMoves(array $game): string
+    public function getRawMoves(array $game): string
     {
         return $game['moves'];
+    }
+
+    public function getMoves(array $game): string
+    {
+        return preg_replace('/{[^}]*}+|\([^)]*\)+/m', '', $game['moves']);
     }
 
     public function metaData(array $game): MetaData
