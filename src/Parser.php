@@ -18,12 +18,11 @@ final class Parser
         $moves = false;
         $strMoves = '';
         $pgnFile = new SplFileObject($filePath);
-        $re = '/\[Event\s|\[Site\s|\[Date\s|\[Round\s|\[White\s|\[Black\s|\[Result\s|\[ECO\s|\[WhiteElo\s|\[BlackElo\s/';
         while (!$pgnFile->eof()) {
             $line = trim($pgnFile->fgets());
             if ($line === '') continue;
 
-            if (preg_match($re, $line)) {
+            if (preg_match('/\[\w+\s+"[^"]*"]/', $line)) {
                 if ($moves) {
                     $i++;
                     $moves = false;

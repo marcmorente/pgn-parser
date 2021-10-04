@@ -8,12 +8,14 @@ error_reporting(E_ALL);
 set_time_limit(0);
 require 'vendor/autoload.php';
 
-$filePath = __DIR__.'/tests/PGNFiles/recullhistoric.pgn';
+$filePath = __DIR__.'/tests/PGNFiles/lligacatalana2019.pgn';
 $pgn = new PGNParser\PGN($filePath);
 $games = $pgn->getGames();
 
 foreach ($games as $game) {
     echo $pgn->metaData($game)->getWhite()."\n";
+    echo $pgn->metaData($game)->getBlack()."\n";
+    echo $pgn->getMoves($game)."\n";
 }
 
 //print_r($games);
