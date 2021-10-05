@@ -30,7 +30,7 @@ class MetaData
         }
     }
 
-    private function setTags($data)
+    private function setTags($data): void
     {
         $tagPattern = '/"(?!.*\?)[^"]+"/mi';
         $tags = ['Event ', 'Site ', 'Date ', 'Round ', 'White ', 'Black ', 'Result ', 'ECO ', 'WhiteElo ', 'BlackElo '];
